@@ -3,12 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --primary-teal: #14B8A6;
+  --primary-gold: #a8996e;
+  --primary-gold-dark: #8b7d5a;
+  --primary-gold-light: #c4b894;
   --sage-green: #84CC16;
   --soft-cream: #FEF7ED;
   --muted-blue: #3B82F6;
   --warm-gray: #F5F5F4;
-  --deep-teal: #0F766E;
+  --deep-gold: #7a6d4f;
   --success-green: #10B981;
   --warning-orange: #F59E0B;
   --error-red: #EF4444;
@@ -22,7 +24,7 @@
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 180 83% 40%;
+    --primary: 45 25% 55%;
     --primary-foreground: 0 0% 98%;
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
@@ -34,7 +36,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
-    --ring: 180 83% 40%;
+    --ring: 45 25% 55%;
     --radius: 0.5rem;
   }
 }
@@ -130,17 +132,17 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #14B8A6;
+  background: #a8996e;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0F766E;
+  background: #8b7d5a;
 }
 
 /* Focus styles for accessibility */
 .focus-visible {
-  @apply ring-2 ring-teal-500 ring-offset-2 outline-none;
+  @apply ring-2 ring-[#a8996e] ring-offset-2 outline-none;
 }
 
 /* Smooth transitions for interactive elements */
@@ -149,11 +151,11 @@ a, button, input, textarea, select {
 }
 
 /* Enhanced button hover effects */
-.group:hover .group-hover\:scale-110 {
+.group:hover .group-hover-scale-110 {
   transform: scale(1.1);
 }
 
-.group:hover .group-hover\:rotate-6 {
+.group:hover .group-hover-rotate-6 {
   transform: rotate(6deg);
 }
 
@@ -194,8 +196,8 @@ a, button, input, textarea, select {
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .bg-teal-50 {
-    @apply bg-teal-100;
+  .bg-gold-10 {
+    @apply bg-[#a8996e]/20;
   }
   
   .text-gray-600 {
@@ -221,7 +223,7 @@ a, button, input, textarea, select {
   bottom: 0;
   left: 0;
   transform: translateX(-100%);
-  background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(168, 153, 110, 0.2), transparent);
   animation: loading 1.5s infinite;
 }
 
