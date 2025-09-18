@@ -9,7 +9,7 @@ export const HeroSection: React.FC = () => {
       <div 
         className="absolute inset-0 parallax bg-cover bg-center"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(https://images.pexels.com/photos/3825583/pexels-photo-3825583.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop)'
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(/eleos.jpeg)'
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/20 to-black/40"></div>
