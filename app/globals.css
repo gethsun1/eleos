@@ -164,6 +164,64 @@ a, button, input, textarea, select {
   .parallax {
     background-attachment: scroll;
   }
+  
+  /* Mobile-specific optimizations */
+  body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* Better touch targets for mobile */
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improved spacing for mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+  /* Even more compact spacing */
+  .py-16 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .py-20 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  
+  .py-24 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .py-32 {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  
+  /* Smaller text sizes for very small screens */
+  .text-3xl {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+  
+  .text-4xl {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  
+  .text-5xl {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
 }
 
 /* Reduced motion preferences */
@@ -206,6 +264,50 @@ a, button, input, textarea, select {
   
   .border-gray-200 {
     @apply border-gray-400;
+  }
+}
+
+/* Mobile-first improvements */
+@media (max-width: 640px) {
+  /* Better mobile navigation */
+  .mobile-menu {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  
+  /* Improved mobile cards */
+  .mobile-card {
+    margin-bottom: 1rem;
+  }
+  
+  /* Better mobile buttons */
+  .mobile-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Mobile-friendly images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Better mobile forms */
+  input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .py-16, .py-20, .py-24, .py-32 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .min-h-screen {
+    min-height: auto;
   }
 }
 
