@@ -57,19 +57,21 @@ if errorlevel 1 (
 echo ✅ [SUCCESS] Application built successfully.
 
 echo 📤 [INFO] Exporting static files...
-npm run export
-if errorlevel 1 (
-    echo ❌ [ERROR] Static export failed. Please check the export errors.
-    pause
-    exit /b 1
-)
+REM With Next.js 13+ and output: 'export', the build command creates static files in 'out' directory
+REM No separate export command needed
 
 echo ✅ [SUCCESS] Static files exported successfully.
 
 echo 📁 [INFO] Preparing files for deployment...
 
 REM Copy the out directory contents to deploy
-xcopy /e /i /y "out\*" "deploy\"
+if exist "out" (
+    xcopy /e /i /y "out\*" "deploy\"
+) else (
+    echo ❌ [ERROR] Build output directory 'out' not found. Build may have failed.
+    pause
+    exit /b 1
+)
 
 REM Create .htaccess file for cPanel
 echo # Eleos Wellness ^& Rehabilitation Centre - .htaccess for cPanel > deploy\.htaccess

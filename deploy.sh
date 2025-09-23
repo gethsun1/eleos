@@ -77,12 +77,8 @@ fi
 print_success "Application built successfully."
 
 print_status "Exporting static files..."
-npm run export
-
-if [ $? -ne 0 ]; then
-    print_error "Static export failed. Please check the export errors."
-    exit 1
-fi
+# With Next.js 13+ and output: 'export', the build command creates static files in 'out' directory
+# No separate export command needed
 
 print_success "Static files exported successfully."
 
@@ -90,7 +86,12 @@ print_success "Static files exported successfully."
 print_status "Preparing files for deployment..."
 
 # Copy the out directory contents to deploy
-cp -r out/* deploy/
+if [ -d "out" ]; then
+    cp -r out/* deploy/
+else
+    print_error "Build output directory 'out' not found. Build may have failed."
+    exit 1
+fi
 
 # Create .htaccess file for cPanel
 cat > deploy/.htaccess << 'EOF'
