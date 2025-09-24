@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { PageLayout } from '@/components/templates/PageLayout';
 import { Button } from '@/components/atoms/Button';
 import { Heart, Target, Eye, Users, Award, Globe } from 'lucide-react';
@@ -56,8 +57,12 @@ export default function AboutPage() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="pt-24 pb-20 bg-gradient-to-br from-teal-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-24 pb-20 relative overflow-hidden hero-height">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/gallery/eleos.jpeg')] bg-cover bg-center parallax hero-bg sm:bg-cover"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/60 to-white/70"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-gray-800 mb-6 animate-fade-in">
               About Eleos Wellness
@@ -98,10 +103,13 @@ export default function AboutPage() {
               </Button>
             </div>
             <div className="animate-slide-up">
-              <img 
-                src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800"
+              <Image 
+                src="/gallery/client_chat.png"
                 alt="Our wellness center"
-                className="rounded-xl shadow-2xl"
+                width={800}
+                height={600}
+                className="rounded-xl shadow-2xl h-auto w-full"
+                priority
               />
             </div>
           </div>

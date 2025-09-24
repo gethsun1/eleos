@@ -20,10 +20,10 @@ export default function ContactPage() {
   const contactMethods = [
     {
       icon: Phone,
-      title: "Call Us",
-      primary: "(555) 123-4567",
-      secondary: "24/7 Crisis Line: (555) 911-HELP",
-      description: "Speak with our intake coordinators"
+      title: "WhatsApp Us",
+      primary: "+254 711 143210",
+      secondary: "Tap to open WhatsApp chat",
+      description: "Fastest response for questions and support"
     },
     {
       icon: Mail,
@@ -85,17 +85,19 @@ export default function ContactPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {contactMethods.map((method, index) => (
+              {contactMethods.map((method, index) => (
               <div 
                 key={index}
                 className={`bg-white rounded-2xl shadow-xl border border-gray-100 p-8 text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-stagger animate-stagger-${index + 1} group`}
               >
-                <div className="flex items-center justify-center w-16 h-16 bg-[#a8996e]/10 rounded-2xl mx-auto mb-6 group-hover:bg-[#a8996e] transition-all duration-500">
-                  <method.icon className="w-8 h-8 text-[#a8996e] group-hover:text-white transition-colors duration-500" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4">{method.title}</h3>
-                <p className="text-lg font-semibold text-[#a8996e] mb-2">{method.primary}</p>
-                <p className="text-md text-gray-600 mb-4">{method.secondary}</p>
+                <a href={index === 0 ? 'https://wa.me/254711143210' : '#'} target={index === 0 ? '_blank' : undefined} rel={index === 0 ? 'noopener noreferrer' : undefined} className="block">
+                  <div className="flex items-center justify-center w-16 h-16 bg-[#a8996e]/10 rounded-2xl mx-auto mb-6 group-hover:bg-[#a8996e] transition-all duration-500">
+                    <method.icon className="w-8 h-8 text-[#a8996e] group-hover:text-white transition-colors duration-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">{method.title}</h3>
+                  <p className="text-lg font-semibold text-[#a8996e] mb-2">{method.primary}</p>
+                  <p className="text-md text-gray-600 mb-4">{method.secondary}</p>
+                </a>
                 <p className="text-sm text-gray-500">{method.description}</p>
               </div>
             ))}

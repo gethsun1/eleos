@@ -6,10 +6,10 @@ import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Clock, Shield, Heart
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white relative overflow-hidden">
-      {/* Background pattern */}
+      {/* Background pattern with subtle image motif */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-20 w-64 h-64 border border-[#a8996e]/20 rounded-full"></div>
-        <div className="absolute bottom-20 left-20 w-48 h-48 border border-[#a8996e]/15 rounded-full"></div>
+        <div className="absolute top-10 right-10 w-64 h-64 bg-[url('/gallery/eleos.jpeg')] bg-cover bg-center rounded-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-48 h-48 bg-[url('/gallery/client_chat.png')] bg-cover bg-center rounded-3xl"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative z-10">
@@ -87,8 +87,8 @@ export const Footer: React.FC = () => {
                   <Phone className="w-4 h-4 md:w-5 md:h-5 text-[#a8996e]" />
                 </div>
                 <div>
-                  <span className="text-gray-300 font-medium text-sm md:text-base">(254) 722-520-122</span>
-                  <p className="text-xs md:text-sm text-gray-400 mt-1">24/7 Crisis Support</p>
+                  <a href="https://wa.me/254711143210" target="_blank" rel="noopener noreferrer" className="text-gray-300 font-medium text-sm md:text-base hover:underline underline-offset-2">+254 711 143210</a>
+                  <p className="text-xs md:text-sm text-gray-400 mt-1">24/7 WhatsApp Support</p>
                 </div>
               </li>
               <li className="flex items-start">

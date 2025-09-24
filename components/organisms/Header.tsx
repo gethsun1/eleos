@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-100' : 'bg-white/90 backdrop-blur-sm'
+      isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-xl border-b border-gray-100' : 'bg-white/40 backdrop-blur-lg'
     }`}>
       {/* Top bar for contact info */}
       <div className="bg-[#a8996e] text-white py-2 hidden md:block">
@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2" />
-                <span>(254) 722-520-122</span>
+                <a href="https://wa.me/254711143210" target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-2">+254 711 143210</a>
               </div>
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-2" />
@@ -86,10 +86,10 @@ export const Header: React.FC = () => {
           </nav>
           
           <div className="hidden xl:flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="text-gray-600 hover:text-[#a8996e] hover:bg-[#a8996e]/5">
+            <a href="https://wa.me/254711143210" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-300 text-gray-600 hover:text-[#a8996e] hover:bg-[#a8996e]/5 h-10 px-4 py-2 text-sm">
               <Phone className="w-4 h-4 mr-2" />
-              (254) 722-520-122
-            </Button>
+              +254 711 143210
+            </a>
             <Button size="sm" className="shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
               <Calendar className="w-4 h-4 mr-2" />
               Book Consultation
@@ -98,9 +98,9 @@ export const Header: React.FC = () => {
           
           {/* Tablet/Mobile CTA Button */}
           <div className="lg:hidden flex items-center space-x-2">
-            <Button size="sm" className="shadow-md">
+            <a href="https://wa.me/254711143210" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-300 shadow-md h-10 px-3 py-2 text-sm bg-[#a8996e] text-white hover:bg-[#8b7d5a]">
               <Phone className="w-4 h-4" />
-            </Button>
+            </a>
           </div>
           
           {/* Mobile Menu Button */}
@@ -140,10 +140,10 @@ export const Header: React.FC = () => {
                   <Calendar className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                   Book Consultation
                 </Button>
-                <Button variant="outline" size="md" className="w-full justify-center border-[#a8996e] text-[#a8996e] hover:bg-[#a8996e] hover:text-white text-sm md:text-base">
+                <a href="https://wa.me/254711143210" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full rounded-xl font-semibold border-2 border-[#a8996e] text-[#a8996e] hover:bg-[#a8996e] hover:text-white text-sm md:text-base h-12 px-6 py-3">
                   <Phone className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                  Call (254) 722-520-122
-                </Button>
+                  WhatsApp: +254 711 143210
+                </a>
               </div>
             </div>
           </div>

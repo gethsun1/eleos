@@ -1,25 +1,43 @@
+'use client';
 import React from 'react';
 import { Button } from '@/components/atoms/Button';
 import { Calendar, Phone, ArrowDown, CheckCircle } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 export const HeroSection: React.FC = () => {
+  const slides = [
+    '/gallery/eleos.jpeg',
+    '/gallery/client_chatIV.webp',
+    '/gallery/yoga_fitness.png',
+    '/gallery/success_story.png',
+    '/gallery/clientchatII.jpg',
+  ];
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Enhanced Overlay */}
-      <div 
-        className="absolute inset-0 parallax bg-cover bg-center"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(/eleos.jpeg)'
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/20 to-black/40"></div>
-        {/* Subtle geometric overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-32 h-32 border border-[#a8996e]/30 rounded-full"></div>
-          <div className="absolute bottom-32 right-32 w-24 h-24 border border-[#a8996e]/20 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-[#a8996e]/25 rounded-full"></div>
-        </div>
-      </div>
+    <section className="relative min-h-screen hero-height flex items-center justify-center overflow-hidden">
+      {/* Background Carousel with Enhanced Overlay */}
+      <Carousel opts={{ loop: true, duration: 30 }} className="absolute inset-0">
+        <CarouselContent className="h-full">
+          {slides.map((src, index) => (
+            <CarouselItem key={index} className="h-[100vh] relative">
+              <div 
+                className="absolute inset-0 parallax bg-cover bg-center sm:bg-cover hero-bg"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6)), url(${src})`
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/20 to-black/40"></div>
+              {/* Subtle geometric overlay */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-20 left-20 w-32 h-32 border border-[#a8996e]/30 rounded-full"></div>
+                <div className="absolute bottom-32 right-32 w-24 h-24 border border-[#a8996e]/20 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-[#a8996e]/25 rounded-full"></div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="hidden sm:flex border-white/30 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm" />
+        <CarouselNext className="hidden sm:flex border-white/30 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm" />
+      </Carousel>
       
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
@@ -51,14 +69,15 @@ export const HeroSection: React.FC = () => {
             <Calendar className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" />
             Start Your Journey
           </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="text-base md:text-lg px-8 md:px-12 py-4 md:py-5 border-2 border-white text-white hover:bg-white hover:text-gray-900 shadow-2xl hover:shadow-white/25 animate-stagger-2 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm w-full sm:w-auto"
+          <a 
+            href="https://wa.me/254711143210"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center text-base md:text-lg px-8 md:px-12 py-4 md:py-5 border-2 border-white text-white hover:bg-white hover:text-gray-900 shadow-2xl hover:shadow-white/25 animate-stagger-2 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm w-full sm:w-auto rounded-xl font-semibold"
           >
             <Phone className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" />
-            Call (254) 722-520-122
-          </Button>
+            WhatsApp: +254 711 143210
+          </a>
         </div>
 
         {/* Enhanced Trust Indicators */}

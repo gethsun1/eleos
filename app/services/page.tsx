@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { PageLayout } from '@/components/templates/PageLayout';
 import { ServiceCard } from '@/components/molecules/ServiceCard';
 import { Button } from '@/components/atoms/Button';
@@ -112,26 +113,50 @@ export default function ServicesPage() {
 
   return (
     <PageLayout>
-      {/* Hero Section */}
-      <section className="pt-24 pb-20 bg-gradient-to-br from-teal-50 via-blue-50 to-lime-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6 animate-fade-in">
+      {/* Hero Section with Banner */}
+      <section className="pt-24 pb-10 relative overflow-hidden hero-height">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/gallery/client_chat.png')] bg-cover bg-center parallax hero-bg sm:bg-cover"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/35 via-black/30 to-black/45"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
               Our Services
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 animate-slide-up">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8 animate-slide-up">
               Comprehensive wellness and rehabilitation services tailored to meet you wherever you are 
-              in your healing journey. Every service is delivered with compassion, expertise, and hope.
+              in your healing journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-stagger">
-              <Button size="lg" className="animate-stagger-1">
+              <Button size="lg" className="animate-stagger-1 bg-[#a8996e] hover:bg-[#8b7d5a] border-2 border-[#a8996e]">
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Consultation
               </Button>
-              <Button variant="outline" size="lg" className="animate-stagger-2">
+              <Button variant="outline" size="lg" className="animate-stagger-2 border-2 border-white text-white hover:bg-white hover:text-[#a8996e]">
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Assessment
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Banner Subsection with gold palette */}
+      <section className="pb-16 bg-gradient-to-br from-[#a8996e]/10 via-white to-[#a8996e]/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="glass rounded-2xl p-6 md:p-8 shadow-xl border border-white/30">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Compassionate, Evidence‑Based Care</h2>
+              <p className="text-gray-700 text-lg mb-6">Our programs combine clinical excellence with human warmth in a healing environment.</p>
+              <div className="flex gap-3">
+                <Button className="bg-[#a8996e] hover:bg-[#8b7d5a]">Explore Programs</Button>
+                <Button variant="outline" className="border-2 border-[#a8996e] text-[#a8996e] hover:bg-[#a8996e] hover:text-white">Talk to Us</Button>
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <Image src="/gallery/eleos.jpeg" alt="Eleos facility" width={1000} height={700} className="w-full h-auto" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
           </div>
         </div>
@@ -153,7 +178,11 @@ export default function ServicesPage() {
       </section>
 
       {/* Specialized Care Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none select-none">
+          <div className="absolute -top-16 -right-16 w-72 h-72 bg-[url('/gallery/clientchatII.jpg')] bg-cover bg-center rounded-3xl"></div>
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[url('/gallery/yoga_fitness.png')] bg-cover bg-center rounded-3xl"></div>
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">

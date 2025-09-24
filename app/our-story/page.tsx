@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { PageLayout } from '@/components/templates/PageLayout';
 import { Button } from '@/components/atoms/Button';
 import { Heart, Calendar, Users, Award, Building, MapPin } from 'lucide-react';
@@ -110,10 +111,13 @@ export default function OurStoryPage() {
               </Button>
             </div>
             <div className="animate-slide-up">
-              <img 
-                src="https://images.pexels.com/photos/6129967/pexels-photo-6129967.jpeg?auto=compress&cs=tinysrgb&w=800"
+              <Image 
+                src="/gallery/client_chatIV.webp"
                 alt="The founding vision of Eleos"
-                className="rounded-xl shadow-2xl"
+                width={800}
+                height={600}
+                className="rounded-xl shadow-2xl h-auto w-full"
+                priority
               />
             </div>
           </div>
@@ -226,10 +230,12 @@ export default function OurStoryPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
-              <img 
-                src="https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=800"
+              <Image 
+                src="/gallery/yoga_fitness.png"
                 alt="Looking toward the future"
-                className="rounded-xl shadow-2xl"
+                width={800}
+                height={600}
+                className="rounded-xl shadow-2xl h-auto w-full"
               />
             </div>
             <div className="animate-fade-in">

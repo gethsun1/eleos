@@ -1,11 +1,14 @@
 import React from 'react';
+import Image from 'next/image';
 import { PageLayout } from '@/components/templates/PageLayout';
 import { HeroSection } from '@/components/organisms/HeroSection';
 import { StatsSection } from '@/components/organisms/StatsSection';
+import { GallerySection } from '@/components/organisms/GallerySection';
 import { ServiceCard } from '@/components/molecules/ServiceCard';
 import { TestimonialCard } from '@/components/molecules/TestimonialCard';
 import { Button } from '@/components/atoms/Button';
 import { Heart, Brain, Users, Shield, Building, MapPin, Phone, ArrowRight, CheckCircle, Award, Clock, Quote, Calendar } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 export default function HomePage() {
   const services = [
@@ -75,6 +78,7 @@ export default function HomePage() {
     <PageLayout>
       <HeroSection />
       <StatsSection />
+      <GallerySection />
       
       {/* Introduction Section */}
       <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50">
@@ -108,31 +112,36 @@ export default function HomePage() {
               </div>
             </div>
             <div className="animate-slide-up relative">
-              <div className="relative">
-                <img 
-                  src="https://images.pexels.com/photos/5998530/pexels-photo-5998530.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Compassionate care at Eleos"
-                  className="rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl"
-                />
-                <div className="absolute -bottom-4 md:-bottom-8 -left-4 md:-left-8 bg-white p-4 md:p-8 rounded-xl md:rounded-2xl shadow-lg md:shadow-xl border border-gray-100">
-                  <div className="flex items-center space-x-3 md:space-x-6">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-[#a8996e]/10 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg">
-                      <Heart className="w-6 h-6 md:w-8 md:h-8 text-[#a8996e]" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-800 text-sm md:text-lg">Professional Care</p>
-                      <p className="text-gray-600 text-xs md:text-base">Licensed & Experienced</p>
-                    </div>
-                  </div>
-                </div>
-                {/* Floating stats */}
-                <div className="absolute -top-3 md:-top-6 -right-3 md:-right-6 bg-[#a8996e] text-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-lg md:shadow-xl">
-                  <div className="text-center">
-                    <div className="text-xl md:text-3xl font-bold">15+</div>
-                    <div className="text-xs md:text-sm opacity-90">Years Experience</div>
-                  </div>
-                </div>
-              </div>
+              <Carousel opts={{ loop: true }}>
+                <CarouselContent>
+                  {['/gallery/client_chat.png','/gallery/client_chatIV.webp','/gallery/yoga_fitness.png'].map((src, idx) => (
+                    <CarouselItem key={idx}>
+                      <div className="relative">
+                        <Image src={src} alt="Eleos care" width={1200} height={800} className="rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl w-full object-cover h-auto" />
+                        <div className="absolute -bottom-4 md:-bottom-8 -left-4 md:-left-8 bg-white p-4 md:p-8 rounded-xl md:rounded-2xl shadow-lg md:shadow-xl border border-gray-100">
+                          <div className="flex items-center space-x-3 md:space-x-6">
+                            <div className="w-12 h-12 md:w-16 md:h-16 bg-[#a8996e]/10 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg">
+                              <Heart className="w-6 h-6 md:w-8 md:h-8 text-[#a8996e]" />
+                            </div>
+                            <div>
+                              <p className="font-bold text-gray-800 text-sm md:text-lg">Professional Care</p>
+                              <p className="text-gray-600 text-xs md:text-base">Licensed & Experienced</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute -top-3 md:-top-6 -right-3 md:-right-6 bg-[#a8996e] text-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-lg md:shadow-xl">
+                          <div className="text-center">
+                            <div className="text-xl md:text-3xl font-bold">15+</div>
+                            <div className="text-xs md:text-sm opacity-90">Years Experience</div>
+                          </div>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="-left-4 bg-white/80" />
+                <CarouselNext className="-right-4 bg-white/80" />
+              </Carousel>
             </div>
           </div>
         </div>
@@ -253,10 +262,10 @@ export default function HomePage() {
               <Calendar className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 mr-2 md:mr-3" />
               Schedule Consultation
             </Button>
-            <Button variant="outline" size="md" className="border-2 border-white text-white hover:bg-white hover:text-[#a8996e] animate-stagger-2 shadow-xl md:shadow-2xl hover:shadow-2xl md:hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300 text-sm md:text-base lg:text-lg px-8 md:px-12 py-4 md:py-5 w-full sm:w-auto">
+            <a href="https://wa.me/254711143210" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-[#a8996e] animate-stagger-2 shadow-xl md:shadow-2xl hover:shadow-2xl md:hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300 text-sm md:text-base lg:text-lg px-8 md:px-12 py-4 md:py-5 w-full sm:w-auto rounded-xl font-semibold">
               <Phone className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 mr-2 md:mr-3" />
-              Call Now: (254) 722-520-122
-            </Button>
+              WhatsApp: +254 711 143210
+            </a>
           </div>
         </div>
       </section>
