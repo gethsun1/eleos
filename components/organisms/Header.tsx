@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
@@ -18,7 +19,7 @@ export function Header() {
   return <header className="site-header">
     <div className="header-inner container">
       <Link href="/" className="brand" aria-label="Eleos home">
-        <span className="brand-mark" aria-hidden="true">e</span>
+        <Image className="brand-logo" src="/eleos-logo.jpeg" alt="" width={48} height={48} />
         <span><strong>eleos</strong><small>WELLNESS &amp; REHABILITATION</small></span>
       </Link>
       <nav className="desktop-nav" aria-label="Main navigation">

@@ -11,8 +11,8 @@ export function pageMetadata(title: string, description: string, path: string): 
     openGraph: {
       type: 'website', locale: 'en_KE', siteName: 'Eleos Wellness & Rehabilitation Centre',
       title: `${title} | Eleos Wellness Centre`, description, url,
-      images: [{ url: '/eleos.jpeg', alt: 'Eleos Wellness & Rehabilitation Centre' }],
+      images: [{ url: '/eleos_wellness_rehabilitation_centre_cover.jpeg', alt: 'Eleos Wellness & Rehabilitation Centre entrance in Gatitu, Thika' }],
     },
-    twitter: { card: 'summary_large_image', title: `${title} | Eleos Wellness Centre`, description, images: ['/eleos.jpeg'] },
+    twitter: { card: 'summary_large_image', title: `${title} | Eleos Wellness Centre`, description, images: ['/eleos_wellness_rehabilitation_centre_cover.jpeg'] },
   };
 }

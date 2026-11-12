@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Heart, ShieldCheck, Sprout, MessageCircle, MapPin } from 'lucide-react';
 import { PageLayout } from '@/components/templates/PageLayout';
 import { ReviewHighlights } from '@/components/molecules/ReviewHighlights';
@@ -13,12 +14,11 @@ const serviceAreas = [
 export default function HomePage() {
   return <PageLayout>
     <section className="hero">
-      <div className="hero-art" aria-hidden="true"><span className="hero-orbit orbit-one"/><span className="hero-orbit orbit-two"/><span className="hero-sun"/></div>
-      <div className="hero-shade" />
+      <div className="hero-cover"><Image src="/eleos_wellness_rehabilitation_centre_cover.jpeg" alt="Eleos Wellness Centre entrance in Gatitu, Thika" width={1128} height={191} priority sizes="100vw" /></div>
       <div className="container hero-content">
         <p className="eyebrow eyebrow-light">Eleos Wellness & Rehabilitation Centre · Gatitu, Thika</p>
-        <h1>Where Healing Begins and Hope is Restored.</h1>
-        <p className="hero-copy">A welcoming place to begin a conversation about wellness and rehabilitation. Reach out to learn more about the support Eleos may offer.</p>
+        <h1>Care that sees the person. Support that honours the journey.</h1>
+        <p className="hero-copy">Eleos welcomes individuals and families seeking wellness and rehabilitation support, with compassion, respect and room for a thoughtful next step.</p>
         <div className="actions"><Link className="button button-brass" href="/contact">Contact Eleos <ArrowRight size={18}/></Link><Link className="button button-ghost" href="/services">Explore service areas</Link></div>
       </div>
       <div className="hero-note"><Heart size={17}/> Compassion begins with listening.</div>
@@ -33,7 +33,7 @@ export default function HomePage() {
       <div className="service-grid">{serviceAreas.map(([title, copy], i) => <article className="service-tile" key={title}><span className="tile-index">0{i+1}</span><div className="service-icon">{i===0?<Sprout/>:i===1?<ShieldCheck/>:i===2?<Heart/>:<MessageCircle/>}</div><h3>{title}</h3><p>{copy}</p><Link href="/services" aria-label={`Ask about ${title}`} className="tile-link">Enquire <ArrowRight size={16}/></Link></article>)}</div>
     </div></section>
 
-    <section className="section section-forest"><div className="container approach-grid"><div><p className="eyebrow eyebrow-light">Our approach</p><h2>Respect, compassion and a thoughtful next step.</h2></div><div><p>We believe people deserve to be met with kindness and dignity. If you are considering reaching out, our team can help you understand the next step and answer questions about available support.</p><Link className="button button-light" href="/contact">Start a conversation <ArrowRight size={18}/></Link></div></div></section>
+    <section className="section section-forest"><div className="container approach-grid"><div><p className="eyebrow eyebrow-light">Our approach</p><h2>Respect, compassion and a thoughtful next step.</h2></div><div><p>Care is not only about the challenges a person faces. It is also about recognising their strengths, respecting their story and creating space for what comes next.</p><Link className="button button-light" href="/contact">Start a conversation <ArrowRight size={18}/></Link></div></div></section>
 
     <ReviewHighlights />
 

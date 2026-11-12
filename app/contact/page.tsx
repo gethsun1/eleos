@@ -12,5 +12,5 @@ export default function ContactPage() { return <PageLayout><PageHero label="Cont
     <a href="https://wa.me/254711143210" target="_blank" rel="noreferrer" className="contact-card"><span className="contact-icon"><MessageCircle/></span><span><strong>WhatsApp</strong><small>+254 711 143210</small></span></a>
     <a href="mailto:eleoswellnesscentre@gmail.com" className="contact-card"><span className="contact-icon"><Mail/></span><span><strong>Email</strong><small>eleoswellnesscentre@gmail.com</small></span></a>
     <div className="contact-card"><span className="contact-icon"><MapPin/></span><span><strong>Visit</strong><small>Gatitu, Thika, Kenya</small></span></div>
-  </div><p className="muted small">Operating hours and precise directions have not been confirmed. Please contact the centre before visiting.</p></div><div className="form-panel"><ContactForm/></div></div></section>
+  </div><p className="muted small">Contact the centre for directions and to plan a visit.</p></div><div className="form-panel"><ContactForm/></div></div></section>
   </PageLayout>; }
