@@ -1,13 +1,12 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Stethoscope, Brain, Shield, HeartHandshake, ArrowRight } from 'lucide-react';
 import { PageLayout } from '@/components/templates/PageLayout';
 import { PageHero } from '@/components/ui/PageHero';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata(
-  'Our Team & Leadership',
-  'Meet Elsie Rodrot, Co-Founder, and explore the multidisciplinary clinical care standard at Eleos Wellness & Rehabilitation Centre in Gatitu, Thika.',
+  'Our Multidisciplinary Team',
+  'Explore the multidisciplinary clinical care standard, licensed specialists, psychiatric oversight, and compassionate care staff at Eleos in Gatitu, Thika.',
   '/team/'
 );
 
@@ -61,55 +60,17 @@ export default function TeamPage() {
   return (
     <PageLayout>
       <PageHero 
-        label="Our Leadership &amp; Care Team" 
-        title="Compassionate leadership, multidisciplinary clinical excellence." 
-        copy="At Eleos, healing is guided by visionary leadership and a collaborative team of licensed professionals committed to clinical integrity, patient dignity, and comprehensive recovery." 
+        label="Our Care Standard" 
+        title="Multidisciplinary clinical excellence, delivered with deep compassion." 
+        copy="At Eleos, healing is guided by a collaborative team of licensed professionals committed to clinical integrity, patient dignity, and comprehensive recovery." 
       />
-
-      {/* Leadership Profile: Elsie Rodrot */}
-      <section className="team-feature-section section" aria-labelledby="elsie-name">
-        <div className="container">
-          <article className="team-feature">
-            <div className="team-feature-portrait">
-              <Image
-                src="/elsie-rodrot.webp"
-                alt="Elsie Rodrot, Co-Founder of Eleos Wellness & Rehabilitation Centre."
-                width={387}
-                height={517}
-                sizes="(max-width: 740px) 100vw, (max-width: 1100px) 44vw, 500px"
-                priority
-              />
-            </div>
-            <div className="team-feature-copy">
-              <p className="eyebrow">Leadership &amp; Co-Founder</p>
-              <h2 id="elsie-name">Elsie Rodrot</h2>
-              <p className="team-feature-role">Co-Founder</p>
-              <p>
-                Elsie Rodrot is a Co-Founder of Eleos Wellness &amp; Rehabilitation Centre, guided by a passion for mental health advocacy, healing and meaningful social impact.
-              </p>
-              <p>
-                Her interest in psychology and the human experience has shaped a commitment to making support more compassionate, accessible and grounded in understanding.
-              </p>
-              <p>
-                At Eleos, Elsie contributes to vision building, programme development, community outreach and client support coordination. Working alongside qualified mental health professionals, she is committed to helping shape an environment where care is approached with empathy, dignity and respect.
-              </p>
-              <p>
-                Beyond her work, Elsie enjoys singing, dancing and participating in initiatives that uplift individuals and communities.
-              </p>
-              <Link className="text-link" href="/contact">
-                Connect with our team <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </article>
-        </div>
-      </section>
 
       {/* Clinical Disciplines */}
       <section className="section">
         <div className="container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">Multidisciplinary Standard</p>
+              <p className="eyebrow">Our Clinical Disciplines</p>
               <h2>A Collaborative Healthcare Team</h2>
             </div>
             <p>
