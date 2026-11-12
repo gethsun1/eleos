@@ -2,18 +2,124 @@ import Link from 'next/link';
 import { PageLayout } from '@/components/templates/PageLayout';
 import { PageHero } from '@/components/ui/PageHero';
 import { pageMetadata } from '@/lib/metadata';
+import { ArrowRight, ShieldCheck, Heart, Users, Sparkles } from 'lucide-react';
 
-export const metadata = pageMetadata('About Eleos','Learn about Eleos Wellness & Rehabilitation Centre in Gatitu, Thika, and the values that guide its approach.','/about/');
+export const metadata = pageMetadata(
+  'About Eleos',
+  'Learn about Eleos Wellness & Rehabilitation Centre in Gatitu, Thika, our clinical philosophy, mission, vision, and core values.',
+  '/about/'
+);
 
 const values = [
-  { title: 'Compassion', text: 'We begin by listening, meeting each person with patience, empathy and an open mind.' },
-  { title: 'Dignity', text: 'Every person deserves to be seen beyond their circumstances and treated with respect.' },
-  { title: 'Connection', text: 'We recognise the strength found in supportive relationships, shared understanding and community.' },
-  { title: 'Hope', text: 'We believe that change can begin with one conversation, one decision and one supported step forward.' },
+  { 
+    title: 'Clinical Compassion', 
+    text: 'We meet every individual with deep empathy, patient understanding, and non-judgmental clinical support from their first step forward.',
+    icon: Heart,
+  },
+  { 
+    title: 'Inherent Dignity', 
+    text: 'Every person holds immense worth beyond the challenges they face. We treat each client with the utmost respect, honor, and absolute discretion.',
+    icon: ShieldCheck,
+  },
+  { 
+    title: 'Restorative Connection', 
+    text: 'Lasting recovery is built on meaningful relationships, empathetic community, and the restoration of fractured family bonds.',
+    icon: Users,
+  },
+  { 
+    title: 'Enduring Hope', 
+    text: 'We hold an unwavering belief in human transformation. Healing begins with a single conversation, leading to sustainable recovery and renewal.',
+    icon: Sparkles,
+  },
 ];
 
-export default function AboutPage() { return <PageLayout><PageHero label="About Eleos" title="A place for care, connection and hope." copy="Eleos Wellness & Rehabilitation Centre is based in Gatitu, Thika, Kenya. We welcome conversations from people and families seeking information about wellness and rehabilitation support." />
-  <section className="section"><div className="container prose-grid"><div><p className="eyebrow">Who we are</p><h2>Compassion is at the heart of Eleos.</h2></div><div className="prose"><p>Eleos Wellness & Rehabilitation Centre welcomes individuals and families seeking information about wellness and rehabilitation support in Gatitu, Thika.</p><p>Every person arrives with a story that deserves to be heard. People should never be reduced to the challenges they face; they deserve understanding, respect and the opportunity to take their next steps with support.</p></div></div></section>
-  <section className="section section-cream"><div className="container values-layout"><div className="values-intro"><p className="eyebrow">What guides us</p><h2>Care shaped by compassion, dignity, connection and hope.</h2></div><div className="values-editorial">{values.map(({title,text},index)=><article className="value-entry" key={title}><span className="value-number">0{index+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
-  <section className="section"><div className="container prose-grid"><div><p className="eyebrow">Our mission and vision</p><h2>A direction for the care we seek to offer.</h2></div><div className="prose"><h3>Mission</h3><p>To create a welcoming and respectful environment where individuals and families can access thoughtful wellness and rehabilitation support, rediscover their strengths and take meaningful steps towards healthier lives.</p><h3>Vision</h3><p>A community where every person can seek support without stigma, experience care with dignity and find the opportunity to grow, recover and flourish.</p><Link className="text-link" href="/our-story">Read our story <span aria-hidden="true">→</span></Link></div></div></section>
-  </PageLayout>; }
+export default function AboutPage() {
+  return (
+    <PageLayout>
+      <PageHero 
+        label="About Eleos" 
+        title="A premier sanctuary for healing, clinical dignity and restored hope." 
+        copy="Eleos Wellness & Rehabilitation Centre in Gatitu, Thika provides comprehensive, multidisciplinary care for individuals and families seeking recovery from addiction, mental health challenges, and emotional trauma." 
+      />
+
+      <section className="section">
+        <div className="container prose-grid">
+          <div>
+            <p className="eyebrow">Who We Are</p>
+            <h2>Healing begins where compassion meets clinical excellence.</h2>
+          </div>
+          <div className="prose">
+            <p>
+              Eleos Wellness &amp; Rehabilitation Centre was established as a dedicated sanctuary for transformation in Gatitu, Thika, located less than 1 km from Thika Town Centre. We serve individuals, families, and organizations navigating the complexities of substance use disorders, clinical depression, anxiety, and relational trauma.
+            </p>
+            <p>
+              We firmly believe that no person should be defined by the crises or hardships they experience. Our centre blends evidence-based psychotherapeutic modalities with medical oversight and holistic wellness practices, creating an environment where individuals can safely stabilize, reflect, and rebuild.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-cream">
+        <div className="container values-layout">
+          <div className="values-intro">
+            <p className="eyebrow">Our Guiding Principles</p>
+            <h2>The core values that guide our clinical practice.</h2>
+            <p className="mt-4 text-muted">
+              These principles shape every interaction, therapeutic session, and care plan at Eleos.
+            </p>
+          </div>
+          <div className="values-editorial">
+            {values.map(({ title, text }, index) => (
+              <article className="value-entry" key={title}>
+                <span className="value-number">0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container prose-grid">
+          <div>
+            <p className="eyebrow">Mission &amp; Vision</p>
+            <h2>A clear mandate for transformative healthcare.</h2>
+          </div>
+          <div className="prose">
+            <h3>Our Mission</h3>
+            <p>
+              To deliver compassionate, evidence-based wellness and rehabilitation care in a dignified and supportive sanctuary—empowering individuals to heal, rediscover their potential, and lead purposeful, fulfilling lives.
+            </p>
+            <h3>Our Vision</h3>
+            <p>
+              To be a premier centre of excellence in mental health and addiction recovery across Kenya, inspiring a community where wellness is embraced without stigma, and every journey is met with respect and hope.
+            </p>
+            <div className="mt-6 flex gap-4">
+              <Link className="text-link" href="/our-story">
+                Read our philosophy and story <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-forest">
+        <div className="container approach-grid">
+          <div>
+            <p className="eyebrow eyebrow-light">Executive Inquiries</p>
+            <h2>Connect with our leadership team.</h2>
+          </div>
+          <div>
+            <p>
+              Learn more about our clinical admissions, corporate mental health packages, or arrange an in-person facility consultation in Gatitu, Thika.
+            </p>
+            <Link className="button button-light" href="/contact">
+              Contact Admissions <ArrowRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </PageLayout>
+  );
+}
