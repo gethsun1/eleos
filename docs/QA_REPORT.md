@@ -1,26 +1,26 @@
 # Eleos pre-push and Vercel Preview readiness audit
 
-Updated: 12 November 2026
+Updated: 12 November 2026 (post-push)
 
 ## Decision
 
-**BLOCKED — REQUIRED FIXES (Preview isolation/configuration).** The source build is clean and a feature-branch push would produce a Vercel Preview, but Vercel currently assigns the production Supabase URL and publishable key to Production, Preview and Development. The deployed Edge Functions are documented with the production site origin. A Preview would therefore share the production backend, while its browser-origin submissions are not configured for the Preview host. Do not push for client testing until Preview is isolated or its Supabase variables are deliberately disabled.
+**Preview readiness: BLOCKED. Production deployment: READY and live after explicit user approval to push `main`; full production acceptance remains incomplete.** Vercel assigns the production Supabase URL and publishable key to Production, Preview and Development. The deployed Edge Functions are documented with the production site origin. A Preview would therefore share the production backend, while its browser-origin submissions are not configured for the Preview host. Do not use Preview for client testing until it is isolated or its Supabase variables are deliberately disabled.
 
-No files were staged or committed. Nothing was pushed or deployed. All Supabase production inspection in this audit used read-only SQL/catalog queries or list/inspect commands; no production rows or configuration were changed.
+The user explicitly approved committing and pushing to `main`. Commit `3bd07e9be4ead1a4761a1d858b6a73c55f0cc4f0` was pushed; Vercel automatically created a Production deployment. All Supabase production inspection in this audit used read-only SQL/catalog queries or list/inspect commands; no production rows or settings were changed.
 
 ## 1. Git integrity
 
 - Branch: `main`.
-- Local `HEAD`: `603b42ad38206e8e5d912f7d0a2482c3722e2639`.
-- `origin/main`: same SHA at audit time. Local branch has no committed delta from the remote base.
-- `git status`: 18 modified tracked files and three untracked files; no staged changes.
+- Application commit: `3bd07e9be4ead1a4761a1d858b6a73c55f0cc4f0` (`feat: prepare Eleos second-pass redesign`).
+- `origin/main` matched that SHA after the design push; this report update is a documentation-only follow-up reflecting the resulting deployment.
+- `git status` after the design commit: no tracked changes and no staged changes; the unrelated proposal PDF remains untracked. The report-only follow-up is the only tracked change being committed now.
 - `.env.local` is ignored by `.gitignore` and appears as ignored, not staged. No credential-pattern matches were found in changed/untracked text files. No password, token, service-role key, or other secret is part of the proposed file set.
 - No changes to `package.json`, package lockfiles, `next.config.js`, Vercel configuration, Supabase migrations, or Supabase functions. `.vercel/` is local link metadata and ignored by Git.
 - No generated build directory is in the candidate file list. Build output is under the ignored `out/` directory.
 - User-provided `Eleos_Website_Review_Redesign_Proposal.pdf` remains untracked and is excluded from the proposed commit. Existing user changes were preserved.
 - Both source assets and their public copies match by SHA-256. `public/favicon.ico` is a valid four-size ICO derived from the supplied logo.
 
-### Proposed commit file set (20 files)
+### Committed file set (20 files)
 
 ```text
 app/about/page.tsx
@@ -94,11 +94,12 @@ No unsupported founding history, staff profiles/qualifications, clinical outcome
 ## 5. Vercel Preview versus Production
 
 - **PASS — linked project inspected:** Vercel project is `eleos`, Next.js, Node 22.x, build command defaults to `npm run build` / `next build`.
-- **PASS — Git connection/branch evidence:** Project Git link reports production branch `main`. Latest deployment for commit `603b42ad38206e8e5d912f7d0a2482c3722e2639` is `READY`, target `production`, branch `main`, and owns `https://eleos.vercel.app`.
+- **PASS — Git connection/branch evidence:** Project Git link reports production branch `main`. Deployment for commit `3bd07e9be4ead1a4761a1d858b6a73c55f0cc4f0` is `READY`, target `production`, branch `main`, and owns `https://eleos.vercel.app`.
 - **PASS — deployment behavior:** A push to `main` would trigger a Production deployment. The project has Preview deployments for non-production branches; the safest code path is a new feature branch, not `main`.
 - **BLOCKED — Preview backend isolation:** Vercel lists `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` in all three environments (Production, Preview, Development), so Preview uses the same configured project values. The Edge Function CORS code allows the configured `SITE_ORIGIN` and defaults to `https://eleos.vercel.app`; the documented production configuration has no Preview origin. Do not use Preview forms/admin against production data.
 - Recommended path: first choose an isolated Supabase Preview project/branch and Preview-only URL/key plus an allowed Preview origin, or deliberately leave Preview Supabase variables unset so forms remain disabled during visual review. This requires explicit owner approval before changing Vercel or Supabase settings. Then push a dedicated non-`main` branch to trigger Vercel Preview and verify its URL; do not merge or push to `main` as part of this review.
-- Live production still serves the previous deployment. This pass has not been published.
+- **PASS — live spot check:** `https://eleos.vercel.app/` returns HTTP 200, includes the new hero headline and cover reference, and the cover image URL returns HTTP 200.
+- No separate/manual deploy command was run; the push to production branch `main` triggered Vercel's automatic Production deployment.
 
 ## 6. Remaining approvals and acceptance
 
@@ -121,4 +122,4 @@ git commit -m "feat: prepare Eleos second-pass redesign"
 git push -u origin codex/eleos-second-pass-preview
 ```
 
-These commands have **not** been run. The PDF, `.env.local`, `.vercel/`, and generated output are excluded. No commit, push, deployment, production database write, or production setting change has occurred.
+These branch-specific Preview commands were **not** run. The approved main-branch commit and push used the 20-file set above. The PDF, `.env.local`, `.vercel/`, and generated output were excluded. No production database write or production setting change occurred.
