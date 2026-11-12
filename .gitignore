@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env*
+!.env.example
+
+# Local agent tooling and CLI state
+/.agents/
+/skills-lock.json
+/supabase/.temp/

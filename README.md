@@ -1,135 +1,34 @@
----
+# Eleos Wellness & Rehabilitation Centre
 
-# 🌿 Eleos Wellness & Rehabilitation Centre Website
+The Eleos public website is built with Next.js App Router, TypeScript, React and Tailwind CSS. It generates a static export for deployment on Vercel while using Supabase Edge Functions for persisted enquiries and visitor reviews when configured.
 
-A modern, responsive, and accessible website for **Eleos Wellness & Rehabilitation Centre**, built with **Next.js**, **TypeScript**, **TailwindCSS**, and **shadcn/ui**.
-
-This project mirrors the structure and user experience of *Balance Rehab Clinic*, but with Eleos-specific branding, mission, and content. It is designed as a **static frontend** with scalability in mind for future backend integration.
-
----
-
-## ✨ Features
-
-* ⚡ **Next.js (App Router)** – fast, SEO-friendly, and modern React framework
-* 🎨 **TailwindCSS + shadcn/ui** – clean, wellness-inspired UI with reusable components
-* 🧩 **Atomic Design Architecture** – scalable component structure (atoms, molecules, organisms, templates, pages)
-* 📱 **Responsive Layout** – optimized for mobile, tablet, and desktop
-* ♿ **Accessibility First** – semantic HTML5, ARIA labels, and clear typography
-* 🔍 **SEO Ready** – metadata setup for better search engine visibility
-* 📄 **Static Frontend** – no backend dependencies (can later integrate booking, blog, donations, etc.)
-
----
-
-## 📂 Project Structure
+## Local development
 
 ```bash
-ELEOSWELLNESS-AND-REHABILITATION-CENTRE/
-│── public/              # Static assets (images, icons, etc.)
-│── src/
-│   ├── app/             # Next.js App Router pages
-│   ├── components/      # UI components (atomic design: atoms, molecules, organisms)
-│   ├── styles/          # Global styles
-│   ├── lib/             # Utility functions
-│── README.md            # Project documentation
-│── package.json         # Dependencies and scripts
-│── tailwind.config.js   # TailwindCSS configuration
-│── tsconfig.json        # TypeScript configuration
-```
-
----
-
-## 🚀 Getting Started
-
-### 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/wilfredcheriz/ELEOSWELLNESS-AND-REHABILITATION-CENTRE.git
-cd ELEOSWELLNESS-AND-REHABILITATION-CENTRE
-```
-
-### 2️⃣ Install Dependencies
-
-Using **npm**:
-
-```bash
-npm install
-```
-
-Or with **yarn**:
-
-```bash
-yarn install
-```
-
-Or with **pnpm**:
-
-```bash
-pnpm install
-```
-
-### 3️⃣ Run the Development Server
-
-```bash
+npm ci
+cp .env.example .env.local
 npm run dev
 ```
 
-Then open your browser at:
-👉 [http://localhost:3000](http://localhost:3000)
+The forms remain unavailable until the public Supabase URL/key are configured and the SQL migration and Edge Functions are deployed. They show a direct contact fallback instead of simulating delivery.
 
----
-
-## 📦 Build for Production
-
-To generate an optimized production build:
+## Verification and build
 
 ```bash
+npm run typecheck
 npm run build
-npm run start
 ```
 
----
+With `output: 'export'`, Next.js writes static files to `out/`. Next.js API routes and server actions are not available in this deployment mode.
 
-## 🌍 Deployment
+## Backend and deployment
 
-This project can be easily deployed on:
+- [Implementation plan](docs/IMPLEMENTATION_MASTER_PLAN.md)
+- [Implementation status](docs/IMPLEMENTATION_STATUS.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Supabase backend setup](docs/BACKEND_SETUP.md)
+- [Deployment steps](docs/DEPLOYMENT.md)
+- [QA report](docs/QA_REPORT.md)
+- [Client information required](docs/CLIENT_INFORMATION_REQUIRED.md)
 
-* **Vercel (Recommended)** – seamless Next.js hosting
-* Netlify
-* GitHub Pages (with static export)
-
-Example with Vercel:
-
-```bash
-npm install -g vercel
-vercel
-```
-
----
-
-## 🛠️ Tech Stack
-
-* [Next.js](https://nextjs.org/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [TailwindCSS](https://tailwindcss.com/)
-* [shadcn/ui](https://ui.shadcn.com/)
-
----
-
-## 👥 Contributors
-
-* **Developer:** [Gethsun Misesi](https://github.com/gethsun1)
-* **Client:** Eleos Wellness & Rehabilitation Centre
-
----
-
-## 📬 Contact
-
-📧 [eleoswellnesscentre@gmail.com](mailto:eleoswellnesscentre@gmail.com)
-📍 Gatitu, Thika – less than 1km from the town centre
-
----
-
-### 🌿 *“Where Healing Begins, and Hope is Restored.”*
-
----
-
+The confirmed public contact details are Gatitu, Thika, Kenya; +254 711 143210; and eleoswellnesscentre@gmail.com. Do not deploy without configuring and testing the backend, obtaining image permissions, and approving the draft legal pages.

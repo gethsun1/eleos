@@ -9,8 +9,9 @@ interface PageLayoutProps {
 export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <Header />
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow">
         {children}
       </main>
       <Footer />
