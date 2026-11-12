@@ -102,3 +102,15 @@ h1,h2,h3{letter-spacing:-.045em}
 .footer-grid{padding-bottom:48px}
 @media(max-width:740px){.header-inner{height:70px}.hero-content{padding-block:48px 94px}.section{padding-block:68px}.location-map-frame{min-height:340px}.photo-contact{grid-template-columns:1fr;gap:30px}}
 @media(prefers-reduced-motion:reduce){.service-tile,.button{transition:none}}
+
+.team-feature-section{background:var(--cream)}
+.team-feature{display:grid;grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr);gap:clamp(38px,7vw,92px);align-items:center;max-width:1080px;margin:0 auto}
+.team-feature-portrait{position:relative;overflow:hidden;aspect-ratio:3/4;background:#e7e5dc;border-radius:180px 180px 14px 14px;box-shadow:0 18px 48px #233a2e14}
+.team-feature-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.team-feature-copy{max-width:620px}
+.team-feature-copy .eyebrow{margin-bottom:16px}
+.team-feature-copy h2{font-size:clamp(2.8rem,5vw,4.6rem);margin:0 0 9px}
+.team-feature-role{color:#927544;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:26px}
+.team-feature-copy>p:not(.eyebrow,.team-feature-role){font-size:1rem;line-height:1.8;color:#505a53;margin-bottom:16px}
+.team-feature-copy .text-link{margin-top:5px}
+@media(max-width:740px){.team-feature{grid-template-columns:1fr;gap:34px}.team-feature-portrait{width:min(100%,430px);margin-inline:auto;border-radius:150px 150px 14px 14px}.team-feature-copy{max-width:600px;margin-inline:auto}.team-feature-copy h2{font-size:clamp(2.7rem,11vw,3.8rem)}.team-feature-copy .eyebrow{max-width:30ch}}

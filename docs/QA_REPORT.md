@@ -123,3 +123,42 @@ git push -u origin codex/eleos-second-pass-preview
 ```
 
 These branch-specific Preview commands were **not** run. The approved main-branch commit and push used the 20-file set above. The PDF, `.env.local`, `.vercel/`, and generated output were excluded. No production database write or production setting change occurred.
+
+## 7. Elsie Rodrot Co-Founder profile
+
+### Source and editorial record
+
+- **Role/name source:** The official Eleos LinkedIn post identifies Elsie Rodrot as a Co-Founder and describes her organisational contributions and interests: [official LinkedIn post](https://www.linkedin.com/posts/eleos-wellness-rehabilitation-centre_eleoswellnesscentre-restoration-founder-activity-7422897923656679424-ifpc).
+- **Portrait source:** Supplied file `assets/Elsie_rodrot.png` (387 × 517 px, RGBA PNG, 282,275 bytes). It was converted to `public/elsie-rodrot.webp` at the same 387 × 517 px proportions using Sharp WebP quality 86; the output is 31,212 bytes. The original supplied file is unchanged.
+- **Biography:** Editorial adaptation of the organisation's published introduction. Personal struggles are not disclosed, and no credentials, clinical title, licence, specialisation or years of experience are claimed.
+
+Public biography used:
+
+> Elsie Rodrot is a Co-Founder of Eleos Wellness & Rehabilitation Centre, guided by a passion for mental health advocacy, healing and meaningful social impact.
+>
+> Her interest in psychology and the human experience has shaped a commitment to making support more compassionate, accessible and grounded in understanding.
+>
+> At Eleos, Elsie contributes to vision building, programme development, community outreach and client support coordination. Working alongside qualified mental health professionals, she is committed to helping shape an environment where care is approached with empathy, dignity and respect.
+>
+> Beyond her work, Elsie enjoys singing, dancing and participating in initiatives that uplift individuals and communities.
+
+### Publication approval item
+
+- **APPROVED — 12 November 2026:** The user confirmed that the final biography and supplied portrait are approved for publication. This approval record is internal and is not shown on the public Team page.
+
+### Checks
+
+| Check | Status | Evidence |
+|---|---|---|
+| `npm run lint` | PASS | Exit 0. |
+| `npm run typecheck` | PASS | Exit 0. |
+| `npm run build` | PASS | Static export completed; 13 `index.html` route files generated. Next.js emitted its existing React 18 support deprecation notice. |
+| `git diff --check` | PASS | No whitespace errors. |
+| Team export contains Elsie and Co-Founder title | PASS | Both are present in `out/team/index.html`. |
+| Portrait reference, dimensions and alt text | PASS | Export points to `/elsie-rodrot.webp`; image is 387 × 517 px and includes the requested descriptive alt text. |
+| Optimized image included in static export | PASS | `out/elsie-rodrot.webp` exists and is 31,212 bytes. |
+| Internal source and approval notes absent from public export | PASS | Team HTML contains no LinkedIn URL or approval note. |
+| Static route and local-reference audit | PASS | All 13 exported HTML routes were found; local page and asset references resolve. |
+| Responsive layout in a browser / mobile overflow | BLOCKED | Browser access host was unavailable. CSS switches the profile to one column at widths up to 740 px, but visual overflow was not browser-verified. |
+| Keyboard interaction in a browser | BLOCKED | Browser access host was unavailable. The page uses semantic headings, a descriptive image alternative and a contact anchor; keyboard traversal was not browser-verified. |
+| Regression check across exported routes | PASS | Production build generated the route set and the static audit found no unresolved local references. Interactive browser regression checks were not run. |
