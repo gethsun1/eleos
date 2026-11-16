@@ -1,5 +1,5 @@
 import { corsHeaders, db, json, rateLimit } from '../_shared/submission.ts';
-const categories=['General information','Services and programmes','Family enquiry','Visit to the centre','Other'];
+const categories=['General information','Rehabilitation','VIP Rehabilitation','Elderly Physiotherapy','Chiropractic','Dementia Support','First Aid Training','Caregiving Course','CNA Safety Course','EMT Training','Life Support Training','International Caregiving Resume Revamping','Psychology Student Internship','Counselling Student Internship','Psychology Practicum','Counselling Practicum','Services and programmes','Family enquiry','Visit to the centre','Other'];
 Deno.serve(async req=>{
   if(req.method==='OPTIONS') return new Response('ok',{headers:corsHeaders});
   if(req.method!=='POST') return json({error:'Method not allowed'},405);

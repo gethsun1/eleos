@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Vercel serves the App Router API route used by the secure Groq assistant.
+  // The public site remains pre-rendered wherever possible.
   trailingSlash: true,
   images: {
     unoptimized: true,

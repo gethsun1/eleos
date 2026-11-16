@@ -1,22 +1,35 @@
-import { Mail, MapPin, MessageCircle, Phone, Clock, ShieldCheck } from 'lucide-react';
+import { Mail, MapPin, MessageCircle, Phone, ShieldCheck } from 'lucide-react';
 import { PageLayout } from '@/components/templates/PageLayout';
 import { PageHero } from '@/components/ui/PageHero';
 import { ContactForm } from '@/components/molecules/ContactForm';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata(
-  'Contact Admissions & Consultations',
-  'Reach Eleos Wellness & Rehabilitation Centre in Gatitu, Thika, Kenya. Call, WhatsApp or send a confidential inquiry.',
+  'Contact Eleos',
+  'Reach Eleos Wellness & Rehabilitation Centre in Gatitu, Thika, Kenya. Call, WhatsApp or send an enquiry.',
   '/contact/'
 );
 
 export default function ContactPage() {
+  const contactSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Eleos Wellness & Rehabilitation Centre',
+    email: 'eleoswellnesscentre@gmail.com',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+254721877272',
+      contactType: 'enquiries',
+      availableLanguage: ['English'],
+    },
+  };
   return (
     <PageLayout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }} />
       <PageHero 
-        label="Admissions &amp; Consultations" 
+        label="Contact Eleos"
         title="We are here to help you take the first step." 
-        copy="Reach Eleos Wellness & Rehabilitation Centre in Gatitu, Thika. Connect with our compassionate admissions team in complete confidence." 
+        copy="Reach Eleos Wellness & Rehabilitation Centre in Gatitu, Thika by phone, WhatsApp, email or online enquiry."
       />
 
       <section className="section">
@@ -26,24 +39,24 @@ export default function ContactPage() {
             <h2>Choose the communication channel that suits you best.</h2>
             
             <div className="contact-cards">
-              <a href="tel:+254711143210" className="contact-card">
+              <a href="tel:+254721877272" className="contact-card">
                 <span className="contact-icon"><Phone /></span>
                 <span>
-                  <strong>Call Admissions Directly</strong>
-                  <small>+254 711 143210</small>
+                <strong>Call Eleos</strong>
+                <small>+254 721 877272</small>
                 </span>
               </a>
               
               <a 
-                href="https://wa.me/254711143210?text=Hello%20Eleos%20Team%2C%20I%20would%20like%20to%20inquire%20about%20a%20confidential%20consultation." 
+                href="https://wa.me/254711143210?text=Hello%20Eleos%2C%20I%20would%20like%20information%20about%20your%20services."
                 target="_blank" 
-                rel="noreferrer" 
+                rel="noopener noreferrer"
                 className="contact-card"
               >
                 <span className="contact-icon"><MessageCircle /></span>
                 <span>
-                  <strong>WhatsApp Consultation</strong>
-                  <small>Instant confidential chat (+254 711 143210)</small>
+                  <strong>WhatsApp Eleos</strong>
+                  <small>+254 711 143210</small>
                 </span>
               </a>
               
@@ -64,22 +77,9 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="contact-hours-card">
-              <div className="flex items-center gap-2 mb-2 font-bold text-forest">
-                <Clock size={18} className="text-brass" />
-                <span>Operating &amp; Consultation Hours</span>
-              </div>
-              <ul className="text-sm text-muted space-y-1">
-                <li><strong>Monday – Friday:</strong> 8:00 AM – 6:00 PM</li>
-                <li><strong>Saturday:</strong> 9:00 AM – 3:00 PM</li>
-                <li><strong>Sunday:</strong> Closed for outpatient visits</li>
-                <li className="text-forest font-semibold pt-1"><strong>Inpatient &amp; Urgent Admissions:</strong> Available 24/7 on call</li>
-              </ul>
-            </div>
-
             <div className="flex items-center gap-2 text-xs text-muted mt-4">
               <ShieldCheck size={16} className="text-forest flex-none" />
-              <span>All consultations and inquiries are treated with strict confidentiality.</span>
+              <span>Please avoid sharing sensitive health details through general enquiries.</span>
             </div>
           </div>
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Linkedin, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Linkedin, Phone, Mail, MapPin } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -31,26 +31,21 @@ export function Footer() {
 
         <div>
           <h2>Clinical Care</h2>
-          <Link href="/services">Substance Recovery &amp; Detox</Link>
-          <Link href="/services">Mental Health &amp; Psychotherapy</Link>
-          <Link href="/services">Family &amp; Marriage Therapy</Link>
-          <Link href="/services">Executive &amp; Corporate Wellness</Link>
-          <Link href="/services">Therapeutic Retreats</Link>
+          <Link href="/services">Rehabilitation</Link>
+          <Link href="/services">Elderly Care &amp; Wellness</Link>
+          <Link href="/services">VIP Rehabilitation</Link>
+          <Link href="/training">Training &amp; Education</Link>
+          <Link href="/community">Community &amp; Wellness</Link>
+          <Link href="/credentials">Credentials &amp; Recognitions</Link>
           <Link href="/team">Multidisciplinary Team</Link>
           <Link href="/gallery">Facility &amp; Environment</Link>
         </div>
 
         <div>
           <h2>Admissions &amp; Contact</h2>
-          <a href="tel:+254711143210" className="footer-highlight-link"><Phone size={15} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }} /> +254 711 143210</a>
-          <a href="https://wa.me/254711143210?text=Hello%20Eleos%20Team%2C%20I%20would%20like%20to%20inquire%20about%20a%20confidential%20consultation." target="_blank" rel="noreferrer">WhatsApp Consultation ↗</a>
+          <a href="tel:+254721877272" className="footer-highlight-link"><Phone size={15} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }} /> Call +254 721 877272</a>
+          <a href="https://wa.me/254711143210" target="_blank" rel="noopener noreferrer">WhatsApp +254 711 143210 ↗</a>
           <a href="mailto:eleoswellnesscentre@gmail.com"><Mail size={15} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }} /> eleoswellnesscentre@gmail.com</a>
-          <div className="footer-hours">
-            <span className="footer-hours-title"><Clock size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '5px' }} /> Hours of Service</span>
-            <span>Mon–Fri: 8:00 AM – 6:00 PM</span>
-            <span>Saturday: 9:00 AM – 3:00 PM</span>
-            <span className="footer-urgent">Admissions on call 24/7</span>
-          </div>
         </div>
       </div>
 
