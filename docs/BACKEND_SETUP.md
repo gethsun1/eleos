@@ -25,3 +25,11 @@ Each function accepts at most three submissions per salted IP hash per 10-minute
 ## 5. Local development
 
 Copy `.env.example` to `.env.local`, fill the public Supabase values, and run `npm run dev`. Edge Functions require Supabase CLI/local Supabase or a deployed project. Do not use actual sensitive visitor data for development.
+
+## 6. Phase 3 enquiry categories
+
+Apply `supabase/migrations/20261116140757_phase3_enquiry_categories.sql` to update the database category constraint, then deploy the updated `submit-enquiry` Edge Function. The migration changes no RLS policies, grants, admin authorization or stored rows. It has not been applied remotely as part of this implementation.
+
+## 7. Chatbot
+
+The Groq integration is served by the Next.js `/api/chat` route on Vercel, not by Supabase. It does not create Supabase rows or use Supabase credentials. Chat messages are sent to Groq to generate replies and are not persisted by this website. See `docs/DEPLOYMENT.md` for Vercel configuration and rate-limit caveats.

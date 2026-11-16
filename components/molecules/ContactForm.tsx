@@ -1,10 +1,15 @@
 'use client';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
 export function ContactForm() {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
+  const [category, setCategory] = useState('');
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get('category') || '';
+    if (categories.includes(requested)) setCategory(requested);
+  }, []);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setMessage('');
     const form = event.currentTarget;
@@ -24,7 +29,7 @@ export function ContactForm() {
     <label>Name<input name="name" autoComplete="name" required maxLength={100}/></label>
     <label>Email<input name="email" type="email" autoComplete="email" required maxLength={254}/></label>
     <label>Telephone <span className="muted">(optional)</span><input name="phone" type="tel" autoComplete="tel" maxLength={32}/></label>
-    <label>What is your enquiry about?<select name="category" required defaultValue=""><option value="" disabled>Select a topic</option><option>General information</option><option>Services and programmes</option><option>Family enquiry</option><option>Visit to the centre</option><option>Other</option></select></label>
+    <label>What is your enquiry about?<select name="category" required value={category} onChange={event => setCategory(event.target.value)}><option value="" disabled>Select a topic</option>{categories.map(item => <option key={item} value={item}>{item}</option>)}</select></label>
     <label>Message<textarea name="message" required minLength={10} maxLength={2000} rows={5} placeholder="Share a little about what information you are looking for."/></label>
     <label className="consent"><input type="checkbox" required/> <span>I understand this enquiry will be stored so Eleos can respond. See the <a href="/privacy-policy/">Privacy Policy</a>.</span></label>
     <label className="honeypot" aria-hidden="true">Leave this field empty<input tabIndex={-1} autoComplete="off" name="website"/></label>
@@ -32,3 +37,5 @@ export function ContactForm() {
     <p aria-live="polite" className="form-message">{message}</p>
   </form>;
 }
+
+const categories = ['General information','Rehabilitation','VIP Rehabilitation','Elderly Physiotherapy','Chiropractic','Dementia Support','First Aid Training','Caregiving Course','CNA Safety Course','EMT Training','Life Support Training','International Caregiving Resume Revamping','Psychology Student Internship','Counselling Student Internship','Psychology Practicum','Counselling Practicum','Services and programmes','Family enquiry','Visit to the centre','Other'];

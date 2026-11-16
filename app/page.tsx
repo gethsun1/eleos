@@ -1,32 +1,32 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Heart, ShieldCheck, Sprout, Users, MapPin, Lock, CheckCircle2, Clock } from 'lucide-react';
+import { ArrowRight, Heart, ShieldCheck, Sprout, Users, MapPin, CheckCircle2 } from 'lucide-react';
 import { PageLayout } from '@/components/templates/PageLayout';
 import { ReviewHighlights } from '@/components/molecules/ReviewHighlights';
 
 const clinicalWings = [
   {
-    title: 'Substance Recovery & Detox',
-    tagline: 'Residential & Medical Detox',
-    copy: 'Comprehensive, medically supervised detoxification and structured residential rehabilitation designed for lasting sobriety and emotional resilience.',
+    title: 'Rehabilitation',
+    tagline: 'Explore support options',
+    copy: 'Contact Eleos to ask about rehabilitation support, current availability and what may be appropriate for an individual.',
     icon: ShieldCheck,
   },
   {
-    title: 'Mental Health & Psychotherapy',
-    tagline: 'Evidence-Based Clinical Care',
-    copy: 'Specialized therapeutic interventions for clinical depression, anxiety disorders, trauma, and complex psychological restoration.',
+    title: 'Elderly Care & Wellness',
+    tagline: 'Person-centred enquiries',
+    copy: 'Ask the Eleos team about elderly physiotherapy, chiropractic services or dementia support, including individual suitability.',
     icon: Heart,
   },
   {
-    title: 'Family & Marriage Therapy',
-    tagline: 'Restorative Systems Healing',
-    copy: 'Dedicated counseling for couples and family systems, rebuilding communication, repairing trust, and supporting families throughout recovery.',
+    title: 'Training & Education',
+    tagline: 'Courses and student learning',
+    copy: 'Explore professional short-course topics, caregiving preparation and student placement enquiries.',
     icon: Users,
   },
   {
-    title: 'Holistic Wellness & Reconditioning',
-    tagline: 'Physical & Mindfulness Care',
-    copy: 'Integrated physical restoration, nutritional guidance, stress regulation, and holistic mindfulness practices to sustain long-term vitality.',
+    title: 'Community & Wellness',
+    tagline: 'Wellness beyond the clinic',
+    copy: 'Learn about community engagement and everyday opportunities to move, connect and support one another.',
     icon: Sprout,
   },
 ];
@@ -47,23 +47,22 @@ export default function HomePage() {
         </div>
         <div className="container hero-content">
           <p className="eyebrow eyebrow-light">Eleos Wellness &amp; Rehabilitation Centre · Gatitu, Thika</p>
-          <h1>Care that sees the person. Clinical excellence that restores hope.</h1>
+          <h1>Care that sees the person. A considered path forward.</h1>
           <p className="hero-copy">
-            Eleos provides compassionate mental health therapy, structured addiction recovery, and restorative wellness in a dignified, confidential sanctuary situated in Gatitu, Thika.
+            Explore rehabilitation, wellness and learning enquiries at Eleos Wellness & Rehabilitation Centre in Gatitu, Thika.
           </p>
           <div className="actions">
             <Link className="button button-brass" href="/contact">
-              Book Confidential Consultation <ArrowRight size={18} />
+              Contact Eleos <ArrowRight size={18} />
             </Link>
             <Link className="button button-ghost" href="/services">
-              Explore Clinical Programs
+              Explore services
             </Link>
           </div>
 
           <div className="hero-trust-strip">
-            <span className="hero-trust-item"><Lock size={15} /> 100% Confidential &amp; Dignified</span>
-            <span className="hero-trust-item"><CheckCircle2 size={15} /> Multidisciplinary Clinical Care</span>
-            <span className="hero-trust-item"><Clock size={15} /> Admissions Available 24/7 on Call</span>
+            <span className="hero-trust-item"><MapPin size={15} /> Gatitu, Thika, Kenya</span>
+            <span className="hero-trust-item"><CheckCircle2 size={15} /> Speak with Eleos directly</span>
           </div>
         </div>
         <div className="hero-note"><Heart size={17} /> Compassion begins with listening.</div>
@@ -72,15 +71,15 @@ export default function HomePage() {
       <section className="section section-cream">
         <div className="container intro-grid">
           <div>
-            <p className="eyebrow">Our Clinical Philosophy</p>
-            <h2>Care starts with being heard, understood and respected.</h2>
+            <p className="eyebrow">About Eleos</p>
+            <h2>Find the information and contact route you need.</h2>
           </div>
           <div>
             <p className="lead">
-              Every recovery journey is unique. At Eleos, we look beyond symptoms to treat the whole person—integrating clinical psychotherapy, medical oversight, and holistic restoration to empower lasting life transformations.
+              If you are exploring a service, course or student opportunity, contact Eleos to confirm current availability, suitability and details.
             </p>
             <Link className="text-link" href="/about">
-              Learn about our philosophy and standards <ArrowRight size={16} />
+              Read the Eleos story <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -90,11 +89,11 @@ export default function HomePage() {
         <div className="container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">Clinical &amp; Wellness Wings</p>
-              <h2>Dedicated pathways to healing and restoration</h2>
+              <p className="eyebrow">Explore Eleos</p>
+              <h2>Start with the area you want to learn about.</h2>
             </div>
             <p>
-              Structured residential, outpatient, and executive programs tailored to individual clinical needs and sustainable wellbeing.
+              Each page explains what information is available and how to ask Eleos for confirmed details.
             </p>
           </div>
           <div className="service-grid">
@@ -107,8 +106,8 @@ export default function HomePage() {
                   <span className="tile-subheading">{wing.tagline}</span>
                   <h3>{wing.title}</h3>
                   <p>{wing.copy}</p>
-                  <Link href="/services" aria-label={`Learn more about ${wing.title}`} className="tile-link">
-                    Program details <ArrowRight size={16} />
+                  <Link href={wing.title === 'Training & Education' ? '/training' : wing.title === 'Community & Wellness' ? '/community' : '/services'} aria-label={`Learn more about ${wing.title}`} className="tile-link">
+                    Explore details <ArrowRight size={16} />
                   </Link>
                 </article>
               );
@@ -120,15 +119,15 @@ export default function HomePage() {
       <section className="section section-forest">
         <div className="container approach-grid">
           <div>
-            <p className="eyebrow eyebrow-light">Multidisciplinary Approach</p>
-            <h2>Respect, evidence-based care and a clear path forward.</h2>
+            <p className="eyebrow eyebrow-light">Human-centred communication</p>
+            <h2>Start with a conversation about what is available.</h2>
           </div>
           <div>
             <p>
-              We combine psychiatric oversight, psychological therapy, and restorative wellness in an environment designed for deep reflection and clinical safety. Every client receives an individualized care plan developed in complete confidentiality.
+              Contact Eleos directly to discuss your question and confirm service information, eligibility and next steps.
             </p>
             <Link className="button button-light" href="/contact">
-              Start a confidential conversation <ArrowRight size={18} />
+              Send an enquiry <ArrowRight size={18} />
             </Link>
           </div>
         </div>
@@ -151,14 +150,14 @@ export default function HomePage() {
             />
           </div>
           <div>
-            <p className="eyebrow">The Healing Environment</p>
-            <h2>A peaceful sanctuary situated in Gatitu, Thika.</h2>
+            <p className="eyebrow">Find Eleos</p>
+            <h2>Based in Gatitu, Thika.</h2>
             <p className="body-copy">
-              Located less than 1 km from Thika Town Centre, Eleos provides a secluded, restful atmosphere that allows clients to step away from daily pressures and focus wholly on renewal and recovery.
+              Contact the team before visiting to confirm the location and any arrangements.
             </p>
             <p className="location-line"><MapPin size={18} /> Gatitu, Thika, Kenya</p>
             <Link className="text-link" href="/gallery">
-              Explore our facility and environment <ArrowRight size={16} />
+              View the gallery <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -167,20 +166,20 @@ export default function HomePage() {
       <section className="section section-cream">
         <div className="container cta-panel">
           <div>
-            <p className="eyebrow">Take the First Step</p>
-            <h2>Confidential guidance is a phone call or message away.</h2>
+            <p className="eyebrow">Contact Eleos</p>
+            <h2>Choose the contact option that works for you.</h2>
             <p>
-              Whether seeking help for yourself or a loved one, our intake team will walk you through the options with sensitivity, dignity, and absolute discretion.
+              Use the contact page to choose a phone call, WhatsApp, email or online enquiry.
             </p>
           </div>
           <div className="actions">
             <a 
               className="button button-forest" 
-              href="https://wa.me/254711143210?text=Hello%20Eleos%20Team%2C%20I%20would%20like%20to%20inquire%20about%20a%20confidential%20consultation." 
+              href="https://wa.me/254711143210?text=Hello%20Eleos%2C%20I%20would%20like%20information%20about%20your%20services."
               target="_blank" 
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
-              WhatsApp Consultation <ArrowRight size={18} />
+              WhatsApp Eleos <ArrowRight size={18} />
             </a>
             <Link className="text-link" href="/contact">
               All contact and admissions options <ArrowRight size={16} />
